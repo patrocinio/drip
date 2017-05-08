@@ -1,0 +1,7 @@
+{
+    "name": "drip",
+    "main": "drip.js",
+    "dependencies": {
+        "mysql": "*"
+    }
+}
