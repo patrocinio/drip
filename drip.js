@@ -17,6 +17,34 @@ function createDBConnection () {
     connection.connect();
 }
 
+function createTable () {
+    console.log ("Creating table...")
+    connection.query ("CREATE TABLE DRIP (time TIMESTAMP, PRIMARY KEY(time))", 
+        function (error, results, fields) {
+            if (error) {
+                console.log ("Error: " + error)
+            } else {
+                console.log ("Result: " + fields)
+            }
+        }
+    );
+
+}
+
+function count() {
+    console.log ("Counting records...")
+    connection.query ("SELECT COUNT(*) as c FROM DRIP", 
+        function (error, results, fields) {
+            if (error) {
+                console.log ("Error: " + error)
+            } else {
+                console.log ("Count: " + results[0]['c'])
+            }
+        }
+    );
+
+}
+
 function drip () {
     console.log ("Adding record...")
     connection.query ("INSERT INTO DRIP VALUES ()", 
@@ -32,5 +60,7 @@ function drip () {
 }
 
 createDBConnection()
+createTable()
+count()
 drip ()
 
