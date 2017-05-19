@@ -1,0 +1,11 @@
+---
+- hosts: linux
+  remote_user: root
+  tasks:
+  - name: Download git project
+    git: 
+      repo: https://github.com/patrocinio/drip.git
+      dest: /root/drip
+
+  - name: Run drip application
+    shell: /root/drip/run.sh
